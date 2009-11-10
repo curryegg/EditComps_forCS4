@@ -75,25 +75,31 @@ var rpLy = false;
 
 app.beginUndoGroup("EditComps");
 
-CompSelectChk();
 
-if(flag != true){
+(function(){
+
+    CompSelectChk();
+
+    if(flag != true){
                       BuildAndShowDialog();
 
-        if( flag == true && Btnon != "Cancel" || Btnon != "OK"){
+            if( flag == true && Btnon != "Cancel" || Btnon != "OK"){
         	//alert("******キャンセルされました******");
-        }else if ( flag == true && Btnon == "Cancel"){
+            }else if ( flag == true && Btnon == "Cancel"){
         	//alert("******キャンセルされました******");
-        }else if( flag == true && Btnon == "OK"){
+            }else if( flag == true && Btnon == "OK"){
         	//alert("******何も変更されていません******");
-        }else{
+            }else{
 		    if ( flag != true && Btnon == "OK" ) GetDialogSettings(); MatryoshkaComp();
 		    if ( flag != true && Btnon == "OK" ) if(valAL){DepSolid();} ReChk(); EditCompSettings();
 		
-            chgSolidItems();
-        }
+                chgSolidItems();
+            }
 
-}
+    }
+
+})();
+
 app.endUndoGroup();
 
 
